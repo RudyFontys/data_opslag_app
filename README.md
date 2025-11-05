@@ -19,6 +19,7 @@ A setup for a webapp with a simple MySQL backend using NodeJS.
 
 Started from an ERD concept and worked towards integrating it into a database. 
 
+<<<<<<< HEAD
 31-10-2025 Update Rudy
 
 Nu er een test is gedaan met de database en deze goed funtioneerd gaan we eerst onze aandacht op de UX richten:
@@ -27,3 +28,6 @@ Nu er een test is gedaan met de database en deze goed funtioneerd gaan we eerst 
 - Welke technieken hebben we daarvoor nodig om de database te benaderen en welke uitdagingen gaan we hier krijgen met JavaScript?
 
 Vanuit het UX ontwerp zullen we ons Trellobord gaan aanpassen en de taken verdelen.
+=======
+created two branches to merge into main when needed.
+>>>>>>> c60307ccaec5de9e7807cd6199fae89a042b05e9

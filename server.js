@@ -1,23 +1,40 @@
+<<<<<<< HEAD
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
+=======
+// Importeer modules
+const express = require('express');
+const mysql = require('mysql2');
+const cors = require('cors');
+>>>>>>> c60307ccaec5de9e7807cd6199fae89a042b05e9
 
 const app = express();
 const port = 3000;
 
 // Middleware
+<<<<<<< HEAD
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static('public'));
 
 // Database connectie
+=======
+app.use(express.json());
+app.use(cors());
+app.use(express.static('public'));
+app.use(express.static('private'));
+
+// Database verbinding
+>>>>>>> c60307ccaec5de9e7807cd6199fae89a042b05e9
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
+<<<<<<< HEAD
     database: 'Bevolkingsregister'
 });
 
@@ -33,10 +50,25 @@ db.connect((err) => {
 app.get('/adressen', (req, res) => {
     db.query('SELECT * FROM Adres', (err, results) => {
         if (err) throw err;
+=======
+    database: 'Bevolkingsregister',
+});
+
+db.connect(err => {
+    if (err) return console.error('Database connection error:', err);
+    console.log('Connected to MySQL');
+});
+
+// Route voor ophalen van adressen
+app.get('/adressen', (req, res) => {
+    db.query('SELECT * FROM Adres', (err, results) => {
+        if (err) return res.status(500).send('Error fetching addresses');
+>>>>>>> c60307ccaec5de9e7807cd6199fae89a042b05e9
         res.json(results);
     });
 });
 
+<<<<<<< HEAD
 app.post('/adres', (req, res) => {
     const { adres, woonplaats } = req.body;
     db.query('INSERT INTO Adres (Adres, Woonplaats) VALUES (?, ?)',
@@ -107,6 +139,17 @@ app.post('/huwelijkscheck', (req, res) => {
         });
 });
 
+=======
+// Route voor toevoegen van een adres
+app.post('/adres', (req, res) => {
+    const { adres, woonplaats } = req.body;
+    db.query('INSERT INTO Adres (Adres, Woonplaats) VALUES (?, ?)', [adres, woonplaats], (err) => {
+        if (err) return res.status(500).send('Error adding address');
+        res.status(201).send('Address added successfully');
+    });
+});
+
+>>>>>>> c60307ccaec5de9e7807cd6199fae89a042b05e9
 // Start server
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
