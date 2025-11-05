@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bevolkingsregister - Ambtenaar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <h1>BEVOLKINGSREGISTER</h1>
+        <h2>AMBTENAARSPANEL</h2>
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="inwoners">Inwoners</button>
+            <button class="tab-button" data-tab="relaties">Relaties</button>
+            <button class="tab-button" data-tab="huwelijken">Huwelijken</button>
+        </div>
+
+        <!-- Inwoners Tab -->
+        <div id="inwoners" class="tab-content active">
+            <div class="form-container">
+                <h3>Nieuwe Inwoner</h3>
+                <form id="inwonerForm">
+                    <div class="form-group">
+                        <label for="naam">Naam:</label>
+                        <input type="text" id="naam" name="naam" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="achternaam">Achternaam:</label>
+                        <input type="text" id="achternaam" name="achternaam" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="geslacht">Geslacht:</label>
+                        <select id="geslacht" name="geslacht" required>
+                            <option value="man">Man</option>
+                            <option value="vrouw">Vrouw</option>
+                            <option value="partner">Partner</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="adres_id">Adres:</label>
+                        <select id="adres_id" name="adres_id" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="geboortedatum">Geboortedatum:</label>
+                        <input type="date" id="geboortedatum" name="geboortedatum" required>
+                    </div>
+                    <button type="submit">Inwoner Toevoegen</button>
+                </form>
+            </div>
+
+            <div class="list-container">
+                <h3>Inwoners Lijst</h3>
+                <div id="inwonersList"></div>
+            </div>
+        </div>
+
+        <!-- Relaties Tab -->
+        <div id="relaties" class="tab-content">
+            <div class="form-container">
+                <h3>Nieuwe Relatie</h3>
+                <form id="relatieForm">
+                    <div class="form-group">
+                        <label for="inwoner1">Inwoner 1:</label>
+                        <select id="inwoner1" name="inwoner1" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inwoner2">Inwoner 2:</label>
+                        <select id="inwoner2" name="inwoner2" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="relatie_type">Relatie Type:</label>
+                        <select id="relatie_type" name="relatie_type" required>
+                            <option value="ouder">Ouder</option>
+                            <option value="kind">Kind</option>
+                            <option value="partner">Partner</option>
+                        </select>
+                    </div>
+                    <button type="submit">Relatie Toevoegen</button>
+                </form>
+            </div>
+
+            <div class="list-container">
+                <h3>Relaties Lijst</h3>
+                <div id="relatiesList"></div>
+            </div>
+        </div>
+
+        <!-- Huwelijken Tab -->
+        <div id="huwelijken" class="tab-content">
+            <div class="form-container">
+                <h3>Huwelijkscheck</h3>
+                <form id="huwelijkForm">
+                    <div class="form-group">
+                        <label for="huwelijk_inwoner1">Inwoner 1:</label>
+                        <select id="huwelijk_inwoner1" name="huwelijk_inwoner1" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="huwelijk_inwoner2">Inwoner 2:</label>
+                        <select id="huwelijk_inwoner2" name="huwelijk_inwoner2" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inteelt">Inteelt Percentage:</label>
+                        <input type="number" id="inteelt" name="inteelt" min="0" max="100" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="goedkeuring">Goedkeuring:</label>
+                        <select id="goedkeuring" name="goedkeuring" required>
+                            <option value="1">Goedgekeurd</option>
+                            <option value="0">Afgekeurd</option>
+                        </select>
+                    </div>
+                    <button type="submit">Huwelijk Registreren</button>
+                </form>
+            </div>
+
+            <div class="list-container">
+                <h3>Huwelijkschecks Lijst</h3>
+                <div id="huwelijkenList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
